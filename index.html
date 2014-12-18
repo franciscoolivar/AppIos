@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="sorteioCurtir">
+  <head>
+    <title> SorteioCurtir </title>
+    <meta charset="utf8"/>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"> </script>
+
+  <script type="text/javascript" src="app.js"> </script>
+
+  </head>
+
+  <body ng-controller="SorteioController">
+    <div class="container">
+      <h1 class="text-center"> SorteioCurtir </h1>
+
+      <input class="form-control" type="text" placeholder="Digite o ID da publicação no facebook" ng-model="pubID">
+
+      <ul>
+        <li ng-repeat="person in likes">
+            <a ng-href="https://www.facebook.com/{{ person.id }}" target="_blank">
+            <span> <img ng-src="https://graph.facebook.com/{{person.id}}/picture"> </span>
+            <span> {{ person.name }} </span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="javascript:void(0)" ng-click="sortear()" class="btn btn-success"> Sortear </a>
+
+      <div class="col-lg-3" ng-show="sorteado">
+        <span> <img ng-src="https://graph.facebook.com/{{sorteado.id}}/picture"> </span>
+      </div>
+
+
+
+    </div> <!-- .container -->
+  </body>
+</html>
+
